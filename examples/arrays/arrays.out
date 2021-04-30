@@ -1,0 +1,18 @@
+$ nim c -r arrays.nim
+[0, 0, 0, 0, 0]
+[0, 0, 0, 0, 0]
+["first element", "", "", "", "", ""]
+[0.0, 0.0, 7.5, 0.0, 0.0, 0.0]
+['h', 'e', 'l', 'l', 'o']
+arr5 length: 5
+first and last index of arr3: 
+10
+15
+[[0, 0, 0], [0, 99, 0], [0, 0, 0]]
+hello
+10=first element
+11=
+12=
+13=
+14=
+15=

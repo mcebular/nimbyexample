@@ -1,0 +1,12 @@
+$ nim c -r procedures2.nim
+an int
+two ints
+an int and a float
+[5, 5, 2, 2, 1]
+15
+My number is 12.5
+cool and good
+alive and well
+nice and easy
+6.0
+2.5

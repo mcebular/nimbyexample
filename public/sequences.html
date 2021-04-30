@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Nim by Example: Sequences</title>
+    <link rel=stylesheet href="style.css">
+    <link rel=stylesheet href="highlight.css">
+</head>
+
+<body>
+    <h1><a href="./index.html">Nim by Example</a>: Sequences</h1>
+
+    <table>
+        
+        <tr>
+            <td class="comment"> Sequences in Nim are a list of values, but unlike arrays,
+sequence's length can change at runtime.
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Declaring an empty sequence only requires defining the value type.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> seq1: <span class="hljs-built_in">seq</span>[<span class="hljs-built_in">int</span>]
+echo seq1
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> To create a non-empty sequence, use the <code>newSeq</code> proc.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> seq2 = newSeq[<span class="hljs-built_in">bool</span>](<span class="hljs-number">5</span>)
+seq2[<span class="hljs-number">2</span>] = <span class="hljs-literal">true</span>
+echo seq2
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> An array can be converted to a sequence by using the <code>@</code> operator.
+This allows initializing the sequence with values the same way as with arrays.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> seq3 = @[&#x27;o&#x27;, &#x27;p&#x27;, &#x27;r&#x27;]
+echo seq3
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> <code>add</code>, <code>insert</code> and <code>delete</code> procs can be used to modify the sequence.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">seq3.add(&#x27;s&#x27;)
+seq3.insert(&#x27;q&#x27;, <span class="hljs-number">2</span>)
+seq3.delete(<span class="hljs-number">0</span>)
+echo seq3
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Sequences can be concatinated with <code>concat</code> proc from <em>sequtils</em> module.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">import</span> sequtils
+echo concat(@[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], @[<span class="hljs-number">3</span>, <span class="hljs-number">4</span>], @[<span class="hljs-number">5</span>, <span class="hljs-number">6</span>])
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Sequence can be sliced out of an array by addressing an array with a <em>slice</em>.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> arr1 = [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;, &#x27;d&#x27;, &#x27;e&#x27;]
+<span class="hljs-keyword">var</span> arr1slice = arr1[<span class="hljs-number">0</span>..<span class="hljs-number">2</span>]
+echo arr1slice <span class="hljs-comment"># is of seq[char] type</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> <em>Backwards index operator</em> can be used in a <em>slice</em> to address the array from
+the high bound. <code>^1</code> is equivalent to <code>arr1.len-1</code>.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo arr1[<span class="hljs-number">2</span>..^<span class="hljs-number">1</span>], <span class="hljs-string">&quot; &lt;=&gt; &quot;</span> , arr1[<span class="hljs-number">2</span>..arr1.len-<span class="hljs-number">1</span>]
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> <code>len</code>, <code>low</code> and <code>high</code> procs work with sequences just like with arrays.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo <span class="hljs-string">&quot;len:  &quot;</span>, seq3.len
+echo <span class="hljs-string">&quot;low:  &quot;</span>, seq3.low
+echo <span class="hljs-string">&quot;high: &quot;</span>, seq3.high
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Note however, that sequence's index range always starts with 0.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> arr2: <span class="hljs-built_in">array</span>[<span class="hljs-number">10</span>..<span class="hljs-number">15</span>, <span class="hljs-built_in">int</span>]
+<span class="hljs-keyword">var</span> arr2seq: <span class="hljs-built_in">seq</span>[<span class="hljs-built_in">int</span>] = @arr2
+echo <span class="hljs-string">&quot;arr2seq range bounds are &quot;</span>,
+    arr2seq.low, <span class="hljs-string">&quot; and &quot;</span>, arr2seq.high
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Multiple dimension sequences can be declared as well.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> seq2d: <span class="hljs-built_in">seq</span>[<span class="hljs-built_in">seq</span>[<span class="hljs-built_in">int</span>]]
+echo seq2d
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Sequences' values can be iterated with <code>for</code> just like with arrays.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">for</span> index, value <span class="hljs-keyword">in</span> arr2seq:
+    echo index, <span class="hljs-string">&quot;=&quot;</span>, value
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">$ nim c -r sequences.nim
+@[]
+@[false, false, true, false, false]
+@['o', 'p', 'r']
+@['p', 'q', 'r', 's']
+@[1, 2, 3, 4, 5, 6]
+@['a', 'b', 'c']
+@['c', 'd', 'e'] <=> @['c', 'd', 'e']
+len:  4
+low:  0
+high: 3
+arr2seq range bounds are 0 and 5
+@[]
+0=0
+1=0
+2=0
+3=0
+4=0
+5=0
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+    </table>
+
+    <p>
+        
+        Previously: <a href="arrays.html">Arrays</a><br />
+        
+        
+        Next up: <a href="tables.html">Tables</a>
+        
+    </p>
+
+    <p class="footer">
+        <a href="https://github.com/mc0239/nimbyexample">source</a> |
+        <a href="https://github.com/mc0239/nimbyexample#license">license</a>
+    </p>
+
+</body>
+
+</html>

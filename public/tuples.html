@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Nim by Example: Tuples</title>
+    <link rel=stylesheet href="style.css">
+    <link rel=stylesheet href="highlight.css">
+</head>
+
+<body>
+    <h1><a href="./index.html">Nim by Example</a>: Tuples</h1>
+
+    <table>
+        
+        <tr>
+            <td class="comment"> <em>Tuples</em> in Nim are sets of (optionally named) fields.
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Wrap values in parantheses to construct a tuple.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> mix = (<span class="hljs-string">&quot;first&quot;</span>, <span class="hljs-number">15</span>, <span class="hljs-literal">true</span>, &#x27;a&#x27;)
+echo mix
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> For tuples with anonymous (unnamed) fields, the fields can be accessed by index.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo mix[<span class="hljs-number">0</span>]
+echo mix[<span class="hljs-number">2</span>]
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Tuples are usually more useful when their fields are named.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> car = (color: <span class="hljs-string">&quot;red&quot;</span>, age: <span class="hljs-number">17</span>)
+echo car
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Tuple fields can then be accessed by name instead of by index.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo car[<span class="hljs-number">0</span>], <span class="hljs-string">&quot; == &quot;</span>, car.color
+echo car.age
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> If tuple only defines (anonymous) fields, any tuple with the same field
+types will match.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> pair: (<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>)
+pair = (<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-string">&quot;Jim&quot;</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Using tuple with named fields in place of an anonymous tuple will
+lose the field names.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">pair = (first: <span class="hljs-string">&quot;Alice&quot;</span>, second: <span class="hljs-string">&quot;Jane&quot;</span>)
+echo pair
+<span class="hljs-comment"># will not work:</span>
+<span class="hljs-comment"># pair.first</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Tuple type definition can also explicitly define field names.
+Syntax in this case uses the <code>tuple</code> keyword.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> named_pair: <span class="hljs-keyword">tuple</span>[first: <span class="hljs-built_in">string</span>, second: <span class="hljs-built_in">string</span>]
+named_pair = (first: <span class="hljs-string">&quot;Bob&quot;</span>, second: <span class="hljs-string">&quot;Jim&quot;</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> An anonymous tuple can be used in place of a tuple with named fields, as long as field types match.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">named_pair = (<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-string">&quot;Jim&quot;</span>)
+echo named_pair.first, <span class="hljs-string">&quot; == Bob&quot;</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> However for tuples with named fields, field <strong>names</strong> should match.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-comment"># will not work:</span>
+<span class="hljs-comment"># named_pair = (primary: &quot;Alice&quot;, secondary: &quot;Jane&quot;)</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Procedures can return multiple values by declaring a tuple as a return type.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">proc</span> two_numbers(): (<span class="hljs-built_in">int</span>, <span class="hljs-built_in">int</span>) =
+    <span class="hljs-keyword">return</span> (<span class="hljs-number">7</span>, <span class="hljs-number">3</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> When calling a procedure that returns a tuple, its result can be <em>unpacked</em>.
+Fields we don't need can be ignored with underscore (<code>_</code>).
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> (_, two) = two_numbers()
+echo two
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> We can define a tuple as a new type.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">type</span> <span class="hljs-type">Car</span> = <span class="hljs-keyword">tuple</span>
+    color: <span class="hljs-built_in">string</span>
+    age: <span class="hljs-built_in">int</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Type <code>Car</code> now essentialy works as an alias for type <code>tuple[color: string, age: int]</code>.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> c1: <span class="hljs-keyword">tuple</span>[color: <span class="hljs-built_in">string</span>, age: <span class="hljs-built_in">int</span>] = (<span class="hljs-string">&quot;blue&quot;</span>, <span class="hljs-number">9</span>)
+<span class="hljs-keyword">var</span> c2: <span class="hljs-type">Car</span> = c1
+echo c1, c2
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> When tuple is reassigned, a copy of a tuple (and its fields) is made.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">inc c2.age
+echo c1, c2
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">$ nim c -r tuples.nim
+("first", 15, true, 'a')
+first
+true
+(color: "red", age: 17)
+red == red
+17
+("Alice", "Jane")
+Bob == Bob
+3
+(color: "blue", age: 9)(color: "blue", age: 9)
+(color: "blue", age: 9)(color: "blue", age: 10)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+    </table>
+
+    <p>
+        
+        Previously: <a href="procedures_contd.html">Procedures (contd.)</a><br />
+        
+        
+        Next up: <a href="objects.html">Objects</a>
+        
+    </p>
+
+    <p class="footer">
+        <a href="https://github.com/mc0239/nimbyexample">source</a> |
+        <a href="https://github.com/mc0239/nimbyexample#license">license</a>
+    </p>
+
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+$ nim c -r objects.nim
+(name: "Alice", age: 25)
+Alice is 25 years old.
+0 == 0
+(name: "Jane", age: 28)
+(name: "Joe", age: 24)
+(name: "Bill", age: 0)(name: "Steve", age: 0)

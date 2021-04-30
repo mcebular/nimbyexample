@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Nim by Example: Variables</title>
+    <link rel=stylesheet href="style.css">
+    <link rel=stylesheet href="highlight.css">
+</head>
+
+<body>
+    <h1><a href="./index.html">Nim by Example</a>: Variables</h1>
+
+    <table>
+        
+        <tr>
+            <td class="comment"> Variables in Nim can be declared with <code>var</code> and <code>let</code>
+statements.
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> <code>var</code> statement declares a mutable variable.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> counter = <span class="hljs-number">1</span>
+inc counter
+echo counter
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> <code>let</code> statement declares an immutable variable.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> name = <span class="hljs-string">&quot;Jeremy&quot;</span>
+echo name
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> x = <span class="hljs-number">15</span>
+echo x
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Modifying an immutable variable will not work.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-comment"># name = &quot;Jerry&quot;</span>
+<span class="hljs-comment"># inc x</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Variable type can be explicity declared.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> long_number: <span class="hljs-built_in">int64</span> = <span class="hljs-number">335_811</span>
+echo long_number
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Multiple variables can be declared with a single
+<code>var</code>/<code>let</code> statement using indentation.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span>
+    a = <span class="hljs-number">1</span>
+    b = <span class="hljs-number">2</span>.<span class="hljs-number">5</span>
+    c = <span class="hljs-string">&quot;clouds&quot;</span>
+echo a, <span class="hljs-string">&quot;, &quot;</span>, b, <span class="hljs-string">&quot;, &quot;</span>, c
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Variables declared without an initial value are zero-valued.
+Without initialization, the type of the variable must be declared.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> num1: <span class="hljs-built_in">int</span>
+echo num1
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Variables declared with <code>let</code> statement require initialization.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> num2 = <span class="hljs-number">15</span>
+echo num2
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">$ nim c -r variables.nim
+2
+Jeremy
+15
+335811
+1, 2.5, clouds
+0
+15
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+    </table>
+
+    <p>
+        
+        Previously: <a href="values.html">Values</a><br />
+        
+        
+        Next up: <a href="constants.html">Constants</a>
+        
+    </p>
+
+    <p class="footer">
+        <a href="https://github.com/mc0239/nimbyexample">source</a> |
+        <a href="https://github.com/mc0239/nimbyexample#license">license</a>
+    </p>
+
+</body>
+
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Nim by Example: References</title>
+    <link rel=stylesheet href="style.css">
+    <link rel=stylesheet href="highlight.css">
+</head>
+
+<body>
+    <h1><a href="./index.html">Nim by Example</a>: References</h1>
+
+    <table>
+        
+        <tr>
+            <td class="comment"> As you might have noticed in some previous examples,
+reassigning a <code>Table</code>, <code>tuple</code> or <code>object</code> will create a copy of
+it and its containing values.
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> When working with <em>references</em> instead of with <em>values</em> is needed,
+The <code>ref</code> keyword can be used.
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> This declares a variable as a reference to an <code>int</code>.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> ref1: <span class="hljs-keyword">ref</span> <span class="hljs-built_in">int</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> A declared, but unassigned variable of reference type will hold <code>nil</code>.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo <span class="hljs-string">&quot;ref1 is nil? &quot;</span>, isNil ref1
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> To create a reference, use the <code>new</code> proc.
+The actual value of the reference will be zero-valued.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> ref2 = <span class="hljs-built_in">int</span>.new()
+echo <span class="hljs-string">&quot;ref2 is nil? &quot;</span>, isNil ref2
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> When required, a reference can be de-referenced with <code>[]</code> operator.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo ref2[]
+ref2[] = <span class="hljs-number">5</span>
+echo ref2[]
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Trying to de-reference a <code>nil</code> reference will cause a crash.
+Use <code>isNil</code> proc to check if reference points to a valid value.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> isNil ref1:
+    echo ref1[]
+<span class="hljs-keyword">else</span>:
+    echo <span class="hljs-string">&quot;ref1 is nil!&quot;</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> An object type can be defined as reference-based by declaring it as <code>ref object</code>.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">type</span> <span class="hljs-type">CatRef</span> = <span class="hljs-keyword">ref</span> <span class="hljs-keyword">object</span>
+    name: <span class="hljs-built_in">string</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> c1 = <span class="hljs-type">CatRef</span>(name: <span class="hljs-string">&quot;Mittens&quot;</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> When accessing object fields, de-referencing is not required (it is done implicitly).
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo c1[].name, <span class="hljs-string">&quot; == &quot;</span>, c1.name
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Since the type is reference-based, reassignment will <strong>not</strong> make a copy of the
+object (contrary to value-based types).
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> c2 = c1
+c2.name = <span class="hljs-string">&quot;Kitty&quot;</span>
+echo c1[], c2[]
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Here, we define a new object type <code>Person</code>, and a new object type <code>PersonRef</code>,
+which is just a reference to the <code>Person</code> object.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">type</span> <span class="hljs-type">Person</span> = <span class="hljs-keyword">object</span>
+    name: <span class="hljs-built_in">string</span>
+<span class="hljs-keyword">type</span> <span class="hljs-type">PersonRef</span> = <span class="hljs-keyword">ref</span> <span class="hljs-type">Person</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> per_ref = <span class="hljs-type">PersonRef</span>(name: <span class="hljs-string">&quot;Bob&quot;</span>)
+echo per_ref[]
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> <code>PersonRef</code> type can now be de-referenced to <code>Person</code> type.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> per1: <span class="hljs-type">Person</span> = per_ref[]
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Assigning a de-referenced object will make a copy of it
+(de-referenced object modification does not modify reference's object).
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> per2: <span class="hljs-type">Person</span> = per_ref[]
+per_ref.name = <span class="hljs-string">&quot;Alice&quot;</span>
+per1.name = <span class="hljs-string">&quot;Mary&quot;</span>
+per2.name = <span class="hljs-string">&quot;Jane&quot;</span>
+echo per_ref[], per1, per2
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">$ nim c -r references.nim
+ref1 is nil? true
+ref2 is nil? false
+0
+5
+ref1 is nil!
+Mittens == Mittens
+(name: "Kitty")(name: "Kitty")
+(name: "Bob")
+(name: "Alice")(name: "Mary")(name: "Jane")
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+    </table>
+
+    <p>
+        
+        Previously: <a href="objects.html">Objects</a><br />
+        
+        
+    </p>
+
+    <p class="footer">
+        <a href="https://github.com/mc0239/nimbyexample">source</a> |
+        <a href="https://github.com/mc0239/nimbyexample#license">license</a>
+    </p>
+
+</body>
+
+</html>

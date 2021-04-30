@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Nim by Example: Procedures (contd.)</title>
+    <link rel=stylesheet href="style.css">
+    <link rel=stylesheet href="highlight.css">
+</head>
+
+<body>
+    <h1><a href="./index.html">Nim by Example</a>: Procedures (contd.)</h1>
+
+    <table>
+        
+        <tr>
+            <td class="comment"> A bit deeper insight into Nim's procedures.
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> <strong>Overloading</strong>
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Multiple procedures with the same name can be declared,
+providing that their number and/or types of arguments differ.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">proc</span> what_is(a: <span class="hljs-built_in">int</span>) = echo <span class="hljs-string">&quot;an int&quot;</span>
+<span class="hljs-keyword">proc</span> what_is(a, b: <span class="hljs-built_in">int</span>) = echo <span class="hljs-string">&quot;two ints&quot;</span>
+<span class="hljs-keyword">proc</span> what_is(a: <span class="hljs-built_in">int</span>, b: <span class="hljs-built_in">float</span>) = echo <span class="hljs-string">&quot;an int and a float&quot;</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">what_is(<span class="hljs-number">3</span>)
+what_is(<span class="hljs-number">3</span>, <span class="hljs-number">6</span>)
+what_is(<span class="hljs-number">4</span>, <span class="hljs-number">8</span>.<span class="hljs-number">99</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> <strong>Variadic procedures</strong>
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> A procedure with variadic number of arguments can be defined
+using <code>varargs</code> statement.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">proc</span> int_sum(numbers: <span class="hljs-built_in">varargs</span>[<span class="hljs-built_in">int</span>]): <span class="hljs-built_in">int</span> =
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> In the procedure, varargs argument acts as an array.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">    echo numbers
+    <span class="hljs-keyword">for</span> number <span class="hljs-keyword">in</span> numbers:
+        <span class="hljs-literal">result</span> = <span class="hljs-literal">result</span> + number
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">echo int_sum(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> <strong>Mutable arguments</strong>
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Proc arguments are immutable. They can be made mutable by
+declaring it with <code>var</code> statement.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">proc</span> half(number: <span class="hljs-keyword">var</span> <span class="hljs-built_in">float</span>) =
+    number = number / <span class="hljs-number">2</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Notice how <code>half</code> proc has no return type, and <code>my_number</code> variable
+is modified directly.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> my_number: <span class="hljs-built_in">float</span> = <span class="hljs-number">25</span>
+half my_number
+echo <span class="hljs-string">&quot;My number is &quot;</span>, my_number
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> <strong>Named arguments</strong>
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> A procedure with <code>first</code> and <code>second</code> arguments.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">proc</span> concat(first, second: <span class="hljs-built_in">string</span>) = echo first &amp; second
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> When calling a proc, arguments can be addressed by name.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">concat(first=<span class="hljs-string">&quot;cool&quot;</span>, second=<span class="hljs-string">&quot; and good&quot;</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> When addressing arguments by name, their order does not matter.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">concat(second=<span class="hljs-string">&quot; and well&quot;</span>, first=<span class="hljs-string">&quot;alive&quot;</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Naming and not-naming arguments can mix. Note that in such cases,
+order of the not-named arguments is important.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">concat(<span class="hljs-string">&quot;nice&quot;</span>, second=<span class="hljs-string">&quot; and easy&quot;</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> <strong>Default argument values</strong>
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Proc arguments can be initialized with a default value.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">proc</span> divide(number: <span class="hljs-built_in">float</span> = <span class="hljs-number">10</span>, divisor = <span class="hljs-number">2</span>.<span class="hljs-number">0</span>): <span class="hljs-built_in">float</span> =
+    number / divisor
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Default value is used if argument is not specified.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo divide(<span class="hljs-number">12</span>) <span class="hljs-comment"># using default divisor</span>
+echo divide(divisor = <span class="hljs-number">4</span>) <span class="hljs-comment"># using default number</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">$ nim c -r procedures2.nim
+an int
+two ints
+an int and a float
+[5, 5, 2, 2, 1]
+15
+My number is 12.5
+cool and good
+alive and well
+nice and easy
+6.0
+2.5
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+    </table>
+
+    <p>
+        
+        Previously: <a href="procedures.html">Procedures</a><br />
+        
+        
+        Next up: <a href="tuples.html">Tuples</a>
+        
+    </p>
+
+    <p class="footer">
+        <a href="https://github.com/mc0239/nimbyexample">source</a> |
+        <a href="https://github.com/mc0239/nimbyexample#license">license</a>
+    </p>
+
+</body>
+
+</html>

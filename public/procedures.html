@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Nim by Example: Procedures</title>
+    <link rel=stylesheet href="style.css">
+    <link rel=stylesheet href="highlight.css">
+</head>
+
+<body>
+    <h1><a href="./index.html">Nim by Example</a>: Procedures</h1>
+
+    <table>
+        
+        <tr>
+            <td class="comment"> Procedures in Nim are what we would call <em>functions</em> in
+other languages.
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> As you've noticed in the previous examples, procedure
+is often abbreviated to <em>proc</em>.
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Procedure can be declared with a <code>proc</code> statement.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">proc</span> greet() =
+    echo <span class="hljs-string">&quot;Greetings!&quot;</span>
+greet()
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Here's a procedure that takes two arguments, a <code>string</code> and an <code>int</code>.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">proc</span> greet(name: <span class="hljs-built_in">string</span>, times: <span class="hljs-built_in">int</span>) =
+    echo <span class="hljs-string">&quot;Greeting &quot;</span>, name, <span class="hljs-string">&quot; &quot;</span>, times, <span class="hljs-string">&quot; times!&quot;</span>
+greet(<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-number">2</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> If procedure has parameters, parantheses when calling it are optional.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">greet <span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-number">3</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> When declaring consecutive procedure arguments of the same type, we can omit
+the argument type for all but last argument of the same type.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">proc</span> greet(greeting, name: <span class="hljs-built_in">string</span>, times: <span class="hljs-built_in">int</span>) =
+    echo greeting, <span class="hljs-string">&quot; &quot;</span>, name, <span class="hljs-string">&quot; &quot;</span>, times, <span class="hljs-string">&quot; times!&quot;</span>
+greet(<span class="hljs-string">&quot;Hello&quot;</span>, <span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-number">4</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Here's a procedure with a defined return type.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">proc</span> sum1(a, b, c: <span class="hljs-built_in">int</span>): <span class="hljs-built_in">int</span> =
+    <span class="hljs-keyword">return</span> a + b + c
+echo sum1(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Procs that declare return type have <code>result</code> variable available in-scope,
+which, <strong>if used</strong>, is implicitly returned if there is no explicit return.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">proc</span> sum2(a, b, c: <span class="hljs-built_in">int</span>): <span class="hljs-built_in">int</span> =
+    <span class="hljs-literal">result</span> = a + b
+    <span class="hljs-literal">result</span> = <span class="hljs-literal">result</span> + c
+    <span class="hljs-comment"># will return result</span>
+echo sum2(<span class="hljs-number">10</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> If <code>result</code> variable is <strong>not used</strong>, the very last statement in the proc is returned.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">proc</span> sum3(a, b, c: <span class="hljs-built_in">int</span>): <span class="hljs-built_in">int</span> =
+    <span class="hljs-keyword">discard</span> a + b
+    echo <span class="hljs-string">&quot;nothing&quot;</span>
+    b + c
+    <span class="hljs-comment"># will return b + c</span>
+echo sum3(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> This also means <code>return</code> statement at the end of the proc can be omitted.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">proc</span> sum4(a, b, c: <span class="hljs-built_in">int</span>): <span class="hljs-built_in">int</span> =
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Howver, <code>return</code> can still be useful for early returns.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">    <span class="hljs-keyword">if</span> a &lt; <span class="hljs-number">0</span>:
+        <span class="hljs-keyword">return</span> -a + b + c
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">    <span class="hljs-keyword">var</span> my_sum = a + b + c
+    my_sum
+    <span class="hljs-comment"># will return my_sum</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">echo sum4(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">15</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Another example without <code>return</code> statement.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">proc</span> sum5(a, b, c: <span class="hljs-built_in">int</span>): <span class="hljs-built_in">int</span> = a + b + c
+echo sum5(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">5</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">$ nim c -r procedures.nim
+Greetings!
+Greeting Bob 2 times!
+Greeting Bob 3 times!
+Hello Bob 4 times!
+10
+20
+nothing
+20
+35
+25
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+    </table>
+
+    <p>
+        
+        Previously: <a href="tables.html">Tables</a><br />
+        
+        
+        Next up: <a href="procedures_contd.html">Procedures (contd.)</a>
+        
+    </p>
+
+    <p class="footer">
+        <a href="https://github.com/mc0239/nimbyexample">source</a> |
+        <a href="https://github.com/mc0239/nimbyexample#license">license</a>
+    </p>
+
+</body>
+
+</html>

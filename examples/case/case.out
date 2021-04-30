@@ -1,0 +1,5 @@
+$ nim c -r case.nim
+i is 1
+j is not between 1 and 10
+k is cool or good
+variable m holds a letter

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Nim by Example: Loops</title>
+    <link rel=stylesheet href="style.css">
+    <link rel=stylesheet href="highlight.css">
+</head>
+
+<body>
+    <h1><a href="./index.html">Nim by Example</a>: Loops</h1>
+
+    <table>
+        
+        <tr>
+            <td class="comment"> Loops in Nim are done either with a <code>while</code> statement or
+with an iterator and <code>for</code> statement.
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> A classic <code>while</code> loop, running until condition is false.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> counter = <span class="hljs-number">10</span>
+<span class="hljs-keyword">while</span> counter &gt; <span class="hljs-number">0</span>:
+    dec counter
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> A <code>for</code> loop that iterates from 1 to 3 (inclusive).
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo <span class="hljs-string">&quot;Counting to three&quot;</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>..<span class="hljs-number">3</span>:
+    echo i
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Two dots (<code>..</code>) are actually a shortcut for <code>countup</code> iterator.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo <span class="hljs-string">&quot;Counting to three&quot;</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> countup(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>):
+    echo i
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Upper bound can also be excluded with <code>..&lt;</code>.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo <span class="hljs-string">&quot;Counting to two&quot;</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>..&lt;<span class="hljs-number">3</span>:
+    echo i
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> <code>char</code>s of a <code>string</code> can be iterated.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;abcd&quot;</span>:
+    echo c
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">echo <span class="hljs-string">&quot;Odd numbers only&quot;</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>..<span class="hljs-number">10</span>:
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> An iteration can be skipped with a <code>continue</code>.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">    <span class="hljs-keyword">if</span> i <span class="hljs-keyword">mod</span> <span class="hljs-number">2</span> == <span class="hljs-number">0</span>:
+        <span class="hljs-keyword">continue</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Loops can be broken out of by using a <code>break</code>.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">    <span class="hljs-keyword">if</span> i &gt;= <span class="hljs-number">6</span>:
+        <span class="hljs-keyword">break</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">    echo i
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Loops cannot have an empty body. <code>discard</code> statement can be
+used for such cases.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>..<span class="hljs-number">10</span>:
+    <span class="hljs-keyword">discard</span> <span class="hljs-comment"># an empty loop</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">$ nim c -r loops.nim
+Counting to three
+1
+2
+3
+Counting to three
+1
+2
+3
+Counting to two
+1
+2
+a
+b
+c
+d
+Odd numbers only
+1
+3
+5
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+    </table>
+
+    <p>
+        
+        Previously: <a href="constants.html">Constants</a><br />
+        
+        
+        Next up: <a href="if_else.html">If/Else</a>
+        
+    </p>
+
+    <p class="footer">
+        <a href="https://github.com/mc0239/nimbyexample">source</a> |
+        <a href="https://github.com/mc0239/nimbyexample#license">license</a>
+    </p>
+
+</body>
+
+</html>

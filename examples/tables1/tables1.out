@@ -1,0 +1,12 @@
+$ nim c -r tables1.nim
+{"kiwi": 60, "apple": 75, "banana": 45}
+kiwi? true
+{"kiwi": 60, "apple": 75}
+pairs #: 2
+{1: "one", 2: "two", 3: "three"}
+kiwi costs 60
+apple costs 75
+{2: "two", 3: "three"}
+{1: "one", 2: "two", 3: "three"}
+{'a': "first"}
+{'a': "first"}

@@ -1,0 +1,8 @@
+$ nim c -r variables.nim
+2
+Jeremy
+15
+335811
+1, 2.5, clouds
+0
+15

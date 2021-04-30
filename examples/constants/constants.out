@@ -1,0 +1,5 @@
+$ nim c -r constants.nim
+13
+9
+5.99
+compile-time constant!

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Nim by Example: If/Else</title>
+    <link rel=stylesheet href="style.css">
+    <link rel=stylesheet href="highlight.css">
+</head>
+
+<body>
+    <h1><a href="./index.html">Nim by Example</a>: If/Else</h1>
+
+    <table>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> A standard way to branch control flow is to use an <code>if</code> statement.
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> A simple <code>if</code> statement.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> x = <span class="hljs-number">10</span>
+<span class="hljs-keyword">if</span> x == <span class="hljs-number">10</span>:
+    echo <span class="hljs-string">&quot;x is 10&quot;</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> The other side of the <code>if</code> branch is <code>else</code>.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> y = <span class="hljs-number">11</span>
+<span class="hljs-keyword">if</span> y == <span class="hljs-number">10</span>:
+    echo <span class="hljs-string">&quot;y is 10&quot;</span>
+<span class="hljs-keyword">else</span>:
+    echo <span class="hljs-string">&quot;y is not 10&quot;</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Multiple branches can be specified by using <code>elif</code> between first <code>if</code> and
+the final <code>else</code>.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> name = <span class="hljs-string">&quot;Mark&quot;</span>
+<span class="hljs-keyword">if</span> name == <span class="hljs-string">&quot;Mark&quot;</span>:
+    echo <span class="hljs-string">&quot;Oh, hi Mark.&quot;</span>
+<span class="hljs-keyword">elif</span> name == <span class="hljs-string">&quot;Bob&quot;</span>:
+    echo <span class="hljs-string">&quot;What&#x27;s up, Bob.&quot;</span>
+<span class="hljs-keyword">elif</span> name == <span class="hljs-string">&quot;Jane&quot;</span>:
+    echo <span class="hljs-string">&quot;Hi, Jane.&quot;</span>
+<span class="hljs-keyword">else</span>:
+    echo <span class="hljs-string">&quot;Hello there.&quot;</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> <code>if</code> can also be used as an expression (i.e. performing a <strong>ternary</strong> operation).
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> is_ok = <span class="hljs-keyword">if</span> <span class="hljs-literal">true</span>: <span class="hljs-string">&quot;ok&quot;</span> <span class="hljs-keyword">else</span>: <span class="hljs-string">&quot;not ok&quot;</span>
+echo is_ok
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Conditions can be wrapped in parantheses.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> i = <span class="hljs-number">5</span>
+<span class="hljs-keyword">if</span> (i &gt; <span class="hljs-number">5</span> <span class="hljs-keyword">and</span> i &lt; <span class="hljs-number">10</span>):
+    echo <span class="hljs-string">&quot;i is between 5 and 10&quot;</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Variables can be defined before the condition.
+Scope of the variable is limited to the branch it was declared in.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">if</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">7</span>; j &lt; <span class="hljs-number">5</span>):
+    echo <span class="hljs-string">&quot;j in scope: &quot;</span>, j
+<span class="hljs-keyword">elif</span> (<span class="hljs-keyword">let</span> k = <span class="hljs-number">8</span>; k &lt; <span class="hljs-number">5</span>):
+    echo <span class="hljs-string">&quot;j not in scope, k in scope: &quot;</span>, k
+<span class="hljs-keyword">else</span>:
+    echo <span class="hljs-string">&quot;neither j nor k in scope&quot;</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">$ nim c -r if_else.nim
+x is 10
+y is not 10
+Oh, hi Mark.
+ok
+neither j nor k in scope
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+    </table>
+
+    <p>
+        
+        Previously: <a href="loops.html">Loops</a><br />
+        
+        
+        Next up: <a href="case.html">Case</a>
+        
+    </p>
+
+    <p class="footer">
+        <a href="https://github.com/mc0239/nimbyexample">source</a> |
+        <a href="https://github.com/mc0239/nimbyexample#license">license</a>
+    </p>
+
+</body>
+
+</html>

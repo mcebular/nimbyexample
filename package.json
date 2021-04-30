@@ -1,0 +1,24 @@
+{
+  "name": "nimbyexample",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "clean": "node src/main.js clean",
+    "outputNim": "node src/main.js outputNim",
+    "build": "node src/main.js",
+    "watch": "npx nodemon -w examples -w templates -w src -e js,html,css,nim,sh src/main.js",
+    "lint": "eslint --ignore-path .gitignore --fix ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "nodemon": "^2.0.3"
+  },
+  "dependencies": {
+    "highlight.js": "^10.7.2",
+    "markdown-it": "^12.0.5",
+    "swig": "^1.4.2"
+  }
+}

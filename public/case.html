@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Nim by Example: Case</title>
+    <link rel=stylesheet href="style.css">
+    <link rel=stylesheet href="highlight.css">
+</head>
+
+<body>
+    <h1><a href="./index.html">Nim by Example</a>: Case</h1>
+
+    <table>
+        
+        <tr>
+            <td class="comment"> Using a <code>case</code> statement is another way of branching
+control flow.
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> A sample usage of <code>case</code>.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>
+<span class="hljs-keyword">case</span> i:
+<span class="hljs-keyword">of</span> <span class="hljs-number">1</span>:
+    echo <span class="hljs-string">&quot;i is 1&quot;</span>
+<span class="hljs-keyword">of</span> <span class="hljs-number">2</span>:
+    echo <span class="hljs-string">&quot;i is 2&quot;</span>
+<span class="hljs-keyword">else</span>:
+    echo <span class="hljs-string">&quot;i is not 1 or 2&quot;</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> With integers (and other <em>ordinal types</em>), <code>of</code> branch can specify a range.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> j = <span class="hljs-number">15</span>
+<span class="hljs-keyword">case</span> j:
+<span class="hljs-keyword">of</span> <span class="hljs-number">1</span>..<span class="hljs-number">10</span>:
+    echo <span class="hljs-string">&quot;j is between 1 and 10&quot;</span>
+<span class="hljs-keyword">else</span>:
+    echo <span class="hljs-string">&quot;j is not between 1 and 10&quot;</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Conditions for the same <code>of</code> branch are separated with a comma.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> k = <span class="hljs-string">&quot;good&quot;</span>
+<span class="hljs-keyword">case</span> k:
+<span class="hljs-keyword">of</span> <span class="hljs-string">&quot;cool&quot;</span>, <span class="hljs-string">&quot;good&quot;</span>:
+    echo <span class="hljs-string">&quot;k is cool or good&quot;</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> For <em>ordinal types</em> (i.e. booleans, integers, chars), <code>case</code> must cover
+all possible cases.
+An <code>else</code> branch covers all the remaining cases not specified
+with <code>of</code> branches.
+Its body can be declared empty by using the <code>discard</code> statement.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">let</span> m = &#x27;a&#x27;
+<span class="hljs-keyword">case</span> m:
+<span class="hljs-keyword">of</span> &#x27;a&#x27;..&#x27;z&#x27;:
+    echo <span class="hljs-string">&quot;variable m holds a letter&quot;</span>
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-keyword">discard</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">$ nim c -r case.nim
+i is 1
+j is not between 1 and 10
+k is cool or good
+variable m holds a letter
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+    </table>
+
+    <p>
+        
+        Previously: <a href="if_else.html">If/Else</a><br />
+        
+        
+        Next up: <a href="arrays.html">Arrays</a>
+        
+    </p>
+
+    <p class="footer">
+        <a href="https://github.com/mc0239/nimbyexample">source</a> |
+        <a href="https://github.com/mc0239/nimbyexample#license">license</a>
+    </p>
+
+</body>
+
+</html>

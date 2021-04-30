@@ -1,0 +1,19 @@
+$ nim c -r sequences.nim
+@[]
+@[false, false, true, false, false]
+@['o', 'p', 'r']
+@['p', 'q', 'r', 's']
+@[1, 2, 3, 4, 5, 6]
+@['a', 'b', 'c']
+@['c', 'd', 'e'] <=> @['c', 'd', 'e']
+len:  4
+low:  0
+high: 3
+arr2seq range bounds are 0 and 5
+@[]
+0=0
+1=0
+2=0
+3=0
+4=0
+5=0

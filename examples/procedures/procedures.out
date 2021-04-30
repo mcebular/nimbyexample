@@ -1,0 +1,11 @@
+$ nim c -r procedures.nim
+Greetings!
+Greeting Bob 2 times!
+Greeting Bob 3 times!
+Hello Bob 4 times!
+10
+20
+nothing
+20
+35
+25

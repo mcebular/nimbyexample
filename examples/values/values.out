@@ -1,0 +1,11 @@
+$ nim c -r values.nim
+Hello!
+nimble
+21
+16.75
+false
+true
+false
+15 + 3 = ...
+18
+not true is false

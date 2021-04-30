@@ -1,0 +1,80 @@
+html {
+    font-family: "Liberation Sans", sans-serif;
+}
+
+body {
+    width: 860px;
+    margin: 5vh auto;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+}
+
+a {
+    color: #9a8700;
+}
+
+a:visited {
+    color: #716400;
+}
+
+/*a:hover {
+    color: #cdb300;
+}*/
+
+ul {
+    margin: 0;
+    padding: 0;
+    line-height: 1.3em;
+    list-style: none;
+}
+
+h1 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+td.comment, td.code, pre.hljs {
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    text-align: left;
+}
+
+td.comment {
+    width: 400px;
+    min-width: 400px;
+    max-width: 400px;
+}
+
+td.code {
+    width: 480px;
+    min-width: 480px;
+    max-width: 480px;
+}
+
+td.comment {
+    font-size: 16px;
+    padding: 4px;
+}
+
+code, pre.hljs {
+    font-size: 14px;
+    line-height: 18px;
+    padding: 4px;
+}
+
+pre.hljs {
+    margin-bottom: 14px;
+}
+
+td.code, td.code pre.hljs {
+    background-color: #f5f5f5;
+    font-family: "Inconsolata", "Consolas", monospace;
+}

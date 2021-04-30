@@ -1,0 +1,6 @@
+$ nim c -r if_else.nim
+x is 10
+y is not 10
+Oh, hi Mark.
+ok
+neither j nor k in scope

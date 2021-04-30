@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Nim by Example: Values</title>
+    <link rel=stylesheet href="style.css">
+    <link rel=stylesheet href="highlight.css">
+</head>
+
+<body>
+    <h1><a href="./index.html">Nim by Example</a>: Values</h1>
+
+    <table>
+        
+        <tr>
+            <td class="comment"> Nim has all the standard value types you would expect.
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Strings. Use <code>&amp;</code> for string concatination.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo <span class="hljs-string">&quot;Hello!&quot;</span>
+echo <span class="hljs-string">&quot;nim&quot;</span> &amp; <span class="hljs-string">&quot;ble&quot;</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Integers and floats.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo <span class="hljs-number">15</span> + <span class="hljs-number">6</span>
+echo <span class="hljs-number">33</span>.<span class="hljs-number">5</span> / <span class="hljs-number">2</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Booleans, with operators <code>and</code>, <code>or</code> and <code>not</code>.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo <span class="hljs-literal">true</span> <span class="hljs-keyword">and</span> <span class="hljs-literal">false</span>
+echo <span class="hljs-literal">true</span> <span class="hljs-keyword">or</span> <span class="hljs-literal">false</span>
+echo <span class="hljs-keyword">not</span> <span class="hljs-literal">true</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Use <code>$</code> to convert a value to a string.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo <span class="hljs-string">&quot;15 + 3 = ...&quot;</span>
+echo $(<span class="hljs-number">15</span> + <span class="hljs-number">3</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> An example of string concatination and conversion to string.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo <span class="hljs-string">&quot;not true is &quot;</span> &amp; $(<span class="hljs-keyword">not</span> <span class="hljs-literal">true</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">$ nim c -r values.nim
+Hello!
+nimble
+21
+16.75
+false
+true
+false
+15 + 3 = ...
+18
+not true is false
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+    </table>
+
+    <p>
+        
+        Previously: <a href="hello_world.html">Hello world</a><br />
+        
+        
+        Next up: <a href="variables.html">Variables</a>
+        
+    </p>
+
+    <p class="footer">
+        <a href="https://github.com/mc0239/nimbyexample">source</a> |
+        <a href="https://github.com/mc0239/nimbyexample#license">license</a>
+    </p>
+
+</body>
+
+</html>

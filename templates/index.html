@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Nim by Example</title>
+    <link rel=stylesheet href="style.css">
+</head>
+
+<body style="width: 500px;">
+    <h1><a href="./index.html">Nim by Example</a></h1>
+    <p>
+        <a href="https://nim-lang.org/" target="_blank">Nim</a> is an efficient, expressive and
+        elegant programming language.
+    </p>
+
+    <p>
+        <em>Nim by Example</em> is a list of briefly explained example programs
+        and code chunks, showcasing Nim's syntax and performing common tasks. Start off with the
+        <a href="hello_world.html">Hello world</a> example or choose an example from
+        the list below.
+    </p>
+
+    <ul>
+        {% for example in examples %}
+        <li><a href="{{ example.filename }}">{{ example.title }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <p>
+        For resources on Nim beyond this website, you are encouraged to check out
+        <a href="https://nim-lang.org/documentation.html" target="_blank">Nim's official documentation</a>, which also
+        includes tutorials to get you started, among other things.
+    </p>
+
+    <p>
+        You can run Nim code (including these examples) without installing Nim by writing and running it in the
+        <a href="https://play.nim-lang.org/" target="_blank">Nim Playground</a>.
+    </p>
+
+    <p class="footer">
+        <a href="https://github.com/mc0239/nimbyexample">source</a> |
+        <a href="https://github.com/mc0239/nimbyexample#license">license</a>
+    </p>
+
+</body>
+
+</html>

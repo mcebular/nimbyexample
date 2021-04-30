@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Nim by Example: Constants</title>
+    <link rel=stylesheet href="style.css">
+    <link rel=stylesheet href="highlight.css">
+</head>
+
+<body>
+    <h1><a href="./index.html">Nim by Example</a>: Constants</h1>
+
+    <table>
+        
+        <tr>
+            <td class="comment"> Constant expressions are evaluated at compile time.
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Constant can be declared with a <code>const</code> statement.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">const</span> magic_number = <span class="hljs-number">13</span>
+echo magic_number
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Similar to <code>var</code> and <code>let</code>, a list of constants can be
+declared by using indentation.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">const</span>
+    cool_number = <span class="hljs-number">9</span>
+    floating: <span class="hljs-built_in">float64</span> = <span class="hljs-number">5</span>.<span class="hljs-number">99</span>
+    quote = <span class="hljs-string">&quot;compile-time constant!&quot;</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">echo cool_number
+echo floating
+echo quote
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">$ nim c -r constants.nim
+13
+9
+5.99
+compile-time constant!
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+    </table>
+
+    <p>
+        
+        Previously: <a href="variables.html">Variables</a><br />
+        
+        
+        Next up: <a href="loops.html">Loops</a>
+        
+    </p>
+
+    <p class="footer">
+        <a href="https://github.com/mc0239/nimbyexample">source</a> |
+        <a href="https://github.com/mc0239/nimbyexample#license">license</a>
+    </p>
+
+</body>
+
+</html>

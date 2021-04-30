@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Nim by Example: Tables</title>
+    <link rel=stylesheet href="style.css">
+    <link rel=stylesheet href="highlight.css">
+</head>
+
+<body>
+    <h1><a href="./index.html">Nim by Example</a>: Tables</h1>
+
+    <table>
+        
+        <tr>
+            <td class="comment"> Tables are Nim's key-value collections (also known
+as <em>maps</em> or <em>dictionaries</em> in other languages).
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Also see <a href="https://nim-lang.org/docs/tables.html">Nim's documentation of table module</a>.
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment">  
+</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> To use tables, we import the <code>tables</code> module.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">import</span> tables
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> To create an empty table, call <code>initTable</code> proc,
+specifying key and value types.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> fruit_prices = initTable[<span class="hljs-built_in">string</span>, <span class="hljs-built_in">int</span>]()
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Add/set key-value pair to table.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">fruit_prices[<span class="hljs-string">&quot;apple&quot;</span>] = <span class="hljs-number">75</span>
+fruit_prices[<span class="hljs-string">&quot;kiwi&quot;</span>] = <span class="hljs-number">60</span>
+fruit_prices[<span class="hljs-string">&quot;banana&quot;</span>] = <span class="hljs-number">45</span>
+echo fruit_prices
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Existance of a key can be checked with <code>hasKey</code> proc.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo <span class="hljs-string">&quot;kiwi? &quot;</span>, fruit_prices.hasKey(<span class="hljs-string">&quot;kiwi&quot;</span>)
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> A key value pair can be removed by calling <code>del</code> proc.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">fruit_prices.del(<span class="hljs-string">&quot;banana&quot;</span>)
+echo fruit_prices
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Use <code>len</code> proc to get number of pairs in the table.
+</td>
+            
+            <td class="code">
+                <pre class="hljs">echo <span class="hljs-string">&quot;pairs #: &quot;</span>, fruit_prices.len
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> A table can also be initialized with values directly.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> numbers = {<span class="hljs-number">1</span>: <span class="hljs-string">&quot;one&quot;</span>, <span class="hljs-number">2</span>: <span class="hljs-string">&quot;two&quot;</span>, <span class="hljs-number">3</span>: <span class="hljs-string">&quot;three&quot;</span>}.toTable
+echo numbers
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Table's key-value pairs can be iterated using <code>for</code> loop.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">for</span> fruit, price <span class="hljs-keyword">in</span> fruit_prices:
+    echo fruit, <span class="hljs-string">&quot; costs &quot;</span>, price
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Reassinging a table will make a copy of it!
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> numbers2 = numbers
+numbers.del(<span class="hljs-number">1</span>) <span class="hljs-comment"># not removed from numbers2</span>
+echo numbers
+echo numbers2
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> To work with references instead of values, use
+<code>TableRef</code> type instead of <code>Table</code>.
+<code>TableRef</code> can be created with <code>newTable</code> proc.
+</td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> letters = newTable[<span class="hljs-built_in">char</span>, <span class="hljs-built_in">string</span>]()
+letters[&#x27;a&#x27;] = <span class="hljs-string">&quot;first&quot;</span>
+letters[&#x27;b&#x27;] = <span class="hljs-string">&quot;second&quot;</span>
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs"><span class="hljs-keyword">var</span> letters2 = letters
+letters.del(&#x27;b&#x27;) <span class="hljs-comment"># also removed from letters2</span>
+echo letters
+echo letters2
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"> Later on, in <a href="references.html">references example</a>, we will
+learn more about working with references.</td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td class="code">
+                <pre class="hljs">$ nim c -r tables1.nim
+{"kiwi": 60, "apple": 75, "banana": 45}
+kiwi? true
+{"kiwi": 60, "apple": 75}
+pairs #: 2
+{1: "one", 2: "two", 3: "three"}
+kiwi costs 60
+apple costs 75
+{2: "two", 3: "three"}
+{1: "one", 2: "two", 3: "three"}
+{'a': "first"}
+{'a': "first"}
+</pre>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+        <tr>
+            <td class="comment"></td>
+            
+            <td></td>
+            
+        </tr>
+        
+    </table>
+
+    <p>
+        
+        Previously: <a href="sequences.html">Sequences</a><br />
+        
+        
+        Next up: <a href="procedures.html">Procedures</a>
+        
+    </p>
+
+    <p class="footer">
+        <a href="https://github.com/mc0239/nimbyexample">source</a> |
+        <a href="https://github.com/mc0239/nimbyexample#license">license</a>
+    </p>
+
+</body>
+
+</html>

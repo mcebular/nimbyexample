@@ -1,0 +1,10 @@
+$ nim c -r references.nim
+ref1 is nil? true
+ref2 is nil? false
+0
+5
+ref1 is nil!
+Mittens == Mittens
+(name: "Kitty")(name: "Kitty")
+(name: "Bob")
+(name: "Alice")(name: "Mary")(name: "Jane")

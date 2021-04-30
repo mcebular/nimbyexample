@@ -1,0 +1,12 @@
+$ nim c -r tuples.nim
+("first", 15, true, 'a')
+first
+true
+(color: "red", age: 17)
+red == red
+17
+("Alice", "Jane")
+Bob == Bob
+3
+(color: "blue", age: 9)(color: "blue", age: 9)
+(color: "blue", age: 9)(color: "blue", age: 10)

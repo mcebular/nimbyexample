@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Nim by Example: {{ title }}</title>
+    <link rel=stylesheet href="style.css">
+    <link rel=stylesheet href="highlight.css">
+</head>
+
+<body>
+    <h1><a href="./index.html">Nim by Example</a>: {{ title }}</h1>
+
+    <table>
+        {% for chunk in chunks %}
+        <tr>
+            <td class="comment">{{ chunk.comment }}</td>
+            {% if chunk.code %}
+            <td class="code">
+                <pre class="hljs">{{ chunk.code }}</pre>
+            </td>
+            {% else %}
+            <td></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p>
+        {% if previous %}
+        Previously: <a href="{{ previous.filename }}">{{ previous.title }}</a><br />
+        {% endif %}
+        {% if next %}
+        Next up: <a href="{{ next.filename }}">{{ next.title }}</a>
+        {% endif %}
+    </p>
+
+    <p class="footer">
+        <a href="https://github.com/mc0239/nimbyexample">source</a> |
+        <a href="https://github.com/mc0239/nimbyexample#license">license</a>
+    </p>
+
+</body>
+
+</html>
