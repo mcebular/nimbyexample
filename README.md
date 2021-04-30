@@ -47,7 +47,7 @@ $ npm run build outputNim
 
 ### License
 
-TODO
+Contents of this repository are licensed under Creative Commons Attribution 3.0 Unported License.
 
 ### Thanks
 
