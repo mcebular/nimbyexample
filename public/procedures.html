@@ -49,7 +49,7 @@ greet()
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">proc</span> greet(name: <span class="hljs-built_in">string</span>, times: <span class="hljs-built_in">int</span>) =
+                <pre class="hljs"><span class="hljs-keyword">proc</span> greet(name: <span class="hljs-type">string</span>, times: <span class="hljs-type">int</span>) =
     echo <span class="hljs-string">&quot;Greeting &quot;</span>, name, <span class="hljs-string">&quot; &quot;</span>, times, <span class="hljs-string">&quot; times!&quot;</span>
 greet(<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-number">2</span>)
 </pre>
@@ -74,7 +74,7 @@ the argument type for all but last argument of the same type.
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">proc</span> greet(greeting, name: <span class="hljs-built_in">string</span>, times: <span class="hljs-built_in">int</span>) =
+                <pre class="hljs"><span class="hljs-keyword">proc</span> greet(greeting, name: <span class="hljs-type">string</span>, times: <span class="hljs-type">int</span>) =
     echo greeting, <span class="hljs-string">&quot; &quot;</span>, name, <span class="hljs-string">&quot; &quot;</span>, times, <span class="hljs-string">&quot; times!&quot;</span>
 greet(<span class="hljs-string">&quot;Hello&quot;</span>, <span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-number">4</span>)
 </pre>
@@ -87,7 +87,7 @@ greet(<span class="hljs-string">&quot;Hello&quot;</span>, <span class="hljs-stri
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">proc</span> sum1(a, b, c: <span class="hljs-built_in">int</span>): <span class="hljs-built_in">int</span> =
+                <pre class="hljs"><span class="hljs-keyword">proc</span> sum1(a, b, c: <span class="hljs-type">int</span>): <span class="hljs-type">int</span> =
     <span class="hljs-keyword">return</span> a + b + c
 echo sum1(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
 </pre>
@@ -101,9 +101,9 @@ which, <strong>if used</strong>, is implicitly returned if there is no explicit 
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">proc</span> sum2(a, b, c: <span class="hljs-built_in">int</span>): <span class="hljs-built_in">int</span> =
-    <span class="hljs-literal">result</span> = a + b
-    <span class="hljs-literal">result</span> = <span class="hljs-literal">result</span> + c
+                <pre class="hljs"><span class="hljs-keyword">proc</span> sum2(a, b, c: <span class="hljs-type">int</span>): <span class="hljs-type">int</span> =
+    <span class="hljs-built_in">result</span> = a + b
+    <span class="hljs-built_in">result</span> = <span class="hljs-built_in">result</span> + c
     <span class="hljs-comment"># will return result</span>
 echo sum2(<span class="hljs-number">10</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>)
 </pre>
@@ -116,7 +116,7 @@ echo sum2(<span class="hljs-number">10</span>, <span class="hljs-number">5</span
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">proc</span> sum3(a, b, c: <span class="hljs-built_in">int</span>): <span class="hljs-built_in">int</span> =
+                <pre class="hljs"><span class="hljs-keyword">proc</span> sum3(a, b, c: <span class="hljs-type">int</span>): <span class="hljs-type">int</span> =
     <span class="hljs-keyword">discard</span> a + b
     echo <span class="hljs-string">&quot;nothing&quot;</span>
     b + c
@@ -132,7 +132,7 @@ echo sum3(<span class="hljs-number">1</span>, <span class="hljs-number">10</span
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">proc</span> sum4(a, b, c: <span class="hljs-built_in">int</span>): <span class="hljs-built_in">int</span> =
+                <pre class="hljs"><span class="hljs-keyword">proc</span> sum4(a, b, c: <span class="hljs-type">int</span>): <span class="hljs-type">int</span> =
 </pre>
             </td>
             
@@ -177,7 +177,7 @@ echo sum3(<span class="hljs-number">1</span>, <span class="hljs-number">10</span
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">proc</span> sum5(a, b, c: <span class="hljs-built_in">int</span>): <span class="hljs-built_in">int</span> = a + b + c
+                <pre class="hljs"><span class="hljs-keyword">proc</span> sum5(a, b, c: <span class="hljs-type">int</span>): <span class="hljs-type">int</span> = a + b + c
 echo sum5(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">5</span>)
 </pre>
             </td>

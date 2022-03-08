@@ -42,9 +42,9 @@ providing that their number and/or types of arguments differ.
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">proc</span> what_is(a: <span class="hljs-built_in">int</span>) = echo <span class="hljs-string">&quot;an int&quot;</span>
-<span class="hljs-keyword">proc</span> what_is(a, b: <span class="hljs-built_in">int</span>) = echo <span class="hljs-string">&quot;two ints&quot;</span>
-<span class="hljs-keyword">proc</span> what_is(a: <span class="hljs-built_in">int</span>, b: <span class="hljs-built_in">float</span>) = echo <span class="hljs-string">&quot;an int and a float&quot;</span>
+                <pre class="hljs"><span class="hljs-keyword">proc</span> what_is(a: <span class="hljs-type">int</span>) = echo <span class="hljs-string">&quot;an int&quot;</span>
+<span class="hljs-keyword">proc</span> what_is(a, b: <span class="hljs-type">int</span>) = echo <span class="hljs-string">&quot;two ints&quot;</span>
+<span class="hljs-keyword">proc</span> what_is(a: <span class="hljs-type">int</span>, b: <span class="hljs-type">float</span>) = echo <span class="hljs-string">&quot;an int and a float&quot;</span>
 </pre>
             </td>
             
@@ -76,7 +76,7 @@ using <code>varargs</code> statement.
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">proc</span> int_sum(numbers: <span class="hljs-built_in">varargs</span>[<span class="hljs-built_in">int</span>]): <span class="hljs-built_in">int</span> =
+                <pre class="hljs"><span class="hljs-keyword">proc</span> int_sum(numbers: <span class="hljs-type">varargs</span>[<span class="hljs-type">int</span>]): <span class="hljs-type">int</span> =
 </pre>
             </td>
             
@@ -89,7 +89,7 @@ using <code>varargs</code> statement.
             <td class="code">
                 <pre class="hljs">    echo numbers
     <span class="hljs-keyword">for</span> number <span class="hljs-keyword">in</span> numbers:
-        <span class="hljs-literal">result</span> = <span class="hljs-literal">result</span> + number
+        <span class="hljs-built_in">result</span> = <span class="hljs-built_in">result</span> + number
 </pre>
             </td>
             
@@ -119,7 +119,7 @@ declaring it with <code>var</code> statement.
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">proc</span> half(number: <span class="hljs-keyword">var</span> <span class="hljs-built_in">float</span>) =
+                <pre class="hljs"><span class="hljs-keyword">proc</span> half(number: <span class="hljs-keyword">var</span> <span class="hljs-type">float</span>) =
     number = number / <span class="hljs-number">2</span>
 </pre>
             </td>
@@ -132,7 +132,7 @@ is modified directly.
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">var</span> my_number: <span class="hljs-built_in">float</span> = <span class="hljs-number">25</span>
+                <pre class="hljs"><span class="hljs-keyword">var</span> my_number: <span class="hljs-type">float</span> = <span class="hljs-number">25</span>
 half my_number
 echo <span class="hljs-string">&quot;My number is &quot;</span>, my_number
 </pre>
@@ -160,7 +160,7 @@ echo <span class="hljs-string">&quot;My number is &quot;</span>, my_number
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">proc</span> concat(first, second: <span class="hljs-built_in">string</span>) = echo first &amp; second
+                <pre class="hljs"><span class="hljs-keyword">proc</span> concat(first, second: <span class="hljs-type">string</span>) = echo first &amp; second
 </pre>
             </td>
             
@@ -220,7 +220,7 @@ order of the not-named arguments is important.
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">proc</span> divide(number: <span class="hljs-built_in">float</span> = <span class="hljs-number">10</span>, divisor = <span class="hljs-number">2</span>.<span class="hljs-number">0</span>): <span class="hljs-built_in">float</span> =
+                <pre class="hljs"><span class="hljs-keyword">proc</span> divide(number: <span class="hljs-type">float</span> = <span class="hljs-number">10</span>, divisor = <span class="hljs-number">2</span>.<span class="hljs-number">0</span>): <span class="hljs-type">float</span> =
     number / divisor
 </pre>
             </td>

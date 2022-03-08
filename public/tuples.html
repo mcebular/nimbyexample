@@ -75,7 +75,7 @@ types will match.
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">var</span> pair: (<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>)
+                <pre class="hljs"><span class="hljs-keyword">var</span> pair: (<span class="hljs-type">string</span>, <span class="hljs-type">string</span>)
 pair = (<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-string">&quot;Jim&quot;</span>)
 </pre>
             </td>
@@ -103,7 +103,7 @@ Syntax in this case uses the <code>tuple</code> keyword.
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">var</span> named_pair: <span class="hljs-keyword">tuple</span>[first: <span class="hljs-built_in">string</span>, second: <span class="hljs-built_in">string</span>]
+                <pre class="hljs"><span class="hljs-keyword">var</span> named_pair: <span class="hljs-keyword">tuple</span>[first: <span class="hljs-type">string</span>, second: <span class="hljs-type">string</span>]
 named_pair = (first: <span class="hljs-string">&quot;Bob&quot;</span>, second: <span class="hljs-string">&quot;Jim&quot;</span>)
 </pre>
             </td>
@@ -139,7 +139,7 @@ echo named_pair.first, <span class="hljs-string">&quot; == Bob&quot;</span>
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">proc</span> two_numbers(): (<span class="hljs-built_in">int</span>, <span class="hljs-built_in">int</span>) =
+                <pre class="hljs"><span class="hljs-keyword">proc</span> two_numbers(): (<span class="hljs-type">int</span>, <span class="hljs-type">int</span>) =
     <span class="hljs-keyword">return</span> (<span class="hljs-number">7</span>, <span class="hljs-number">3</span>)
 </pre>
             </td>
@@ -165,8 +165,8 @@ echo two
             
             <td class="code">
                 <pre class="hljs"><span class="hljs-keyword">type</span> <span class="hljs-type">Car</span> = <span class="hljs-keyword">tuple</span>
-    color: <span class="hljs-built_in">string</span>
-    age: <span class="hljs-built_in">int</span>
+    color: <span class="hljs-type">string</span>
+    age: <span class="hljs-type">int</span>
 </pre>
             </td>
             
@@ -177,7 +177,7 @@ echo two
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">var</span> c1: <span class="hljs-keyword">tuple</span>[color: <span class="hljs-built_in">string</span>, age: <span class="hljs-built_in">int</span>] = (<span class="hljs-string">&quot;blue&quot;</span>, <span class="hljs-number">9</span>)
+                <pre class="hljs"><span class="hljs-keyword">var</span> c1: <span class="hljs-keyword">tuple</span>[color: <span class="hljs-type">string</span>, age: <span class="hljs-type">int</span>] = (<span class="hljs-string">&quot;blue&quot;</span>, <span class="hljs-number">9</span>)
 <span class="hljs-keyword">var</span> c2: <span class="hljs-type">Car</span> = c1
 echo c1, c2
 </pre>

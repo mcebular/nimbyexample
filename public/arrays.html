@@ -26,7 +26,7 @@
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">var</span> arr1: <span class="hljs-built_in">array</span>[<span class="hljs-number">0</span>..<span class="hljs-number">4</span>, <span class="hljs-built_in">int</span>]
+                <pre class="hljs"><span class="hljs-keyword">var</span> arr1: <span class="hljs-type">array</span>[<span class="hljs-number">0</span>..<span class="hljs-number">4</span>, <span class="hljs-type">int</span>]
 echo arr1
 </pre>
             </td>
@@ -38,7 +38,7 @@ echo arr1
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">var</span> arr2: <span class="hljs-built_in">array</span>[<span class="hljs-number">5</span>, <span class="hljs-built_in">int</span>]
+                <pre class="hljs"><span class="hljs-keyword">var</span> arr2: <span class="hljs-type">array</span>[<span class="hljs-number">5</span>, <span class="hljs-type">int</span>]
 echo arr2
 </pre>
             </td>
@@ -50,7 +50,7 @@ echo arr2
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">var</span> arr3: <span class="hljs-built_in">array</span>[<span class="hljs-number">10</span>..<span class="hljs-number">15</span>, <span class="hljs-built_in">string</span>]
+                <pre class="hljs"><span class="hljs-keyword">var</span> arr3: <span class="hljs-type">array</span>[<span class="hljs-number">10</span>..<span class="hljs-number">15</span>, <span class="hljs-type">string</span>]
 arr3[<span class="hljs-number">10</span>] = <span class="hljs-string">&quot;first element&quot;</span>
 echo arr3
 </pre>
@@ -63,7 +63,7 @@ echo arr3
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">var</span> arr4: <span class="hljs-built_in">array</span>[&#x27;a&#x27;..&#x27;f&#x27;, <span class="hljs-built_in">float</span>]
+                <pre class="hljs"><span class="hljs-keyword">var</span> arr4: <span class="hljs-type">array</span>[&#x27;a&#x27;..&#x27;f&#x27;, <span class="hljs-type">float</span>]
 arr4[&#x27;c&#x27;] = <span class="hljs-number">7</span>.<span class="hljs-number">5</span>
 echo arr4
 </pre>
@@ -114,7 +114,7 @@ echo arr3.high
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">var</span> arr2d: <span class="hljs-built_in">array</span>[<span class="hljs-number">3</span>, <span class="hljs-built_in">array</span>[<span class="hljs-number">3</span>, <span class="hljs-built_in">int</span>]]
+                <pre class="hljs"><span class="hljs-keyword">var</span> arr2d: <span class="hljs-type">array</span>[<span class="hljs-number">3</span>, <span class="hljs-type">array</span>[<span class="hljs-number">3</span>, <span class="hljs-type">int</span>]]
 arr2d[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">99</span>
 echo arr2d
 </pre>
@@ -128,8 +128,8 @@ echo arr2d
             
             <td class="code">
                 <pre class="hljs"><span class="hljs-keyword">for</span> val <span class="hljs-keyword">in</span> arr5:
-    <span class="hljs-literal">stdout</span>.write(val)
-<span class="hljs-literal">stdout</span>.write(&#x27;\n&#x27;)
+    <span class="hljs-built_in">stdout</span>.write(val)
+<span class="hljs-built_in">stdout</span>.write(&#x27;\n&#x27;)
 </pre>
             </td>
             

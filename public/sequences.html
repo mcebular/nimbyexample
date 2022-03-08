@@ -27,7 +27,7 @@ sequence's length can change at runtime.
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">var</span> seq1: <span class="hljs-built_in">seq</span>[<span class="hljs-built_in">int</span>]
+                <pre class="hljs"><span class="hljs-keyword">var</span> seq1: <span class="hljs-type">seq</span>[<span class="hljs-type">int</span>]
 echo seq1
 </pre>
             </td>
@@ -39,7 +39,7 @@ echo seq1
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">var</span> seq2 = newSeq[<span class="hljs-built_in">bool</span>](<span class="hljs-number">5</span>)
+                <pre class="hljs"><span class="hljs-keyword">var</span> seq2 = newSeq[<span class="hljs-type">bool</span>](<span class="hljs-number">5</span>)
 seq2[<span class="hljs-number">2</span>] = <span class="hljs-literal">true</span>
 echo seq2
 </pre>
@@ -129,8 +129,8 @@ echo <span class="hljs-string">&quot;high: &quot;</span>, seq3.high
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">var</span> arr2: <span class="hljs-built_in">array</span>[<span class="hljs-number">10</span>..<span class="hljs-number">15</span>, <span class="hljs-built_in">int</span>]
-<span class="hljs-keyword">var</span> arr2seq: <span class="hljs-built_in">seq</span>[<span class="hljs-built_in">int</span>] = @arr2
+                <pre class="hljs"><span class="hljs-keyword">var</span> arr2: <span class="hljs-type">array</span>[<span class="hljs-number">10</span>..<span class="hljs-number">15</span>, <span class="hljs-type">int</span>]
+<span class="hljs-keyword">var</span> arr2seq: <span class="hljs-type">seq</span>[<span class="hljs-type">int</span>] = @arr2
 echo <span class="hljs-string">&quot;arr2seq range bounds are &quot;</span>,
     arr2seq.low, <span class="hljs-string">&quot; and &quot;</span>, arr2seq.high
 </pre>
@@ -143,7 +143,7 @@ echo <span class="hljs-string">&quot;arr2seq range bounds are &quot;</span>,
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">var</span> seq2d: <span class="hljs-built_in">seq</span>[<span class="hljs-built_in">seq</span>[<span class="hljs-built_in">int</span>]]
+                <pre class="hljs"><span class="hljs-keyword">var</span> seq2d: <span class="hljs-type">seq</span>[<span class="hljs-type">seq</span>[<span class="hljs-type">int</span>]]
 echo seq2d
 </pre>
             </td>

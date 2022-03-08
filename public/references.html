@@ -37,7 +37,7 @@ The <code>ref</code> keyword can be used.
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">var</span> ref1: <span class="hljs-keyword">ref</span> <span class="hljs-built_in">int</span>
+                <pre class="hljs"><span class="hljs-keyword">var</span> ref1: <span class="hljs-keyword">ref</span> <span class="hljs-type">int</span>
 </pre>
             </td>
             
@@ -60,7 +60,7 @@ The actual value of the reference will be zero-valued.
 </td>
             
             <td class="code">
-                <pre class="hljs"><span class="hljs-keyword">var</span> ref2 = <span class="hljs-built_in">int</span>.new()
+                <pre class="hljs"><span class="hljs-keyword">var</span> ref2 = <span class="hljs-type">int</span>.new()
 echo <span class="hljs-string">&quot;ref2 is nil? &quot;</span>, isNil ref2
 </pre>
             </td>
@@ -101,7 +101,7 @@ Use <code>isNil</code> proc to check if reference points to a valid value.
             
             <td class="code">
                 <pre class="hljs"><span class="hljs-keyword">type</span> <span class="hljs-type">CatRef</span> = <span class="hljs-keyword">ref</span> <span class="hljs-keyword">object</span>
-    name: <span class="hljs-built_in">string</span>
+    name: <span class="hljs-type">string</span>
 </pre>
             </td>
             
@@ -149,7 +149,7 @@ which is just a reference to the <code>Person</code> object.
             
             <td class="code">
                 <pre class="hljs"><span class="hljs-keyword">type</span> <span class="hljs-type">Person</span> = <span class="hljs-keyword">object</span>
-    name: <span class="hljs-built_in">string</span>
+    name: <span class="hljs-type">string</span>
 <span class="hljs-keyword">type</span> <span class="hljs-type">PersonRef</span> = <span class="hljs-keyword">ref</span> <span class="hljs-type">Person</span>
 </pre>
             </td>
