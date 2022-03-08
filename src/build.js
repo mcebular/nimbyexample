@@ -37,14 +37,14 @@ const renderBuild = () => {
 }
 
 function renderIndexPage(examples) {
-    let index = renderTemplateFile(path.join(TEMPLATES_PATH, "index.html"), {
+    let index = renderTemplateFile(path.join(TEMPLATES_PATH, "index.njk"), {
         examples: examples.map(ex => { return { filename: ex.filename, title: ex.title }})
     });
     fs.writeFileSync(path.join(BUILD_PATH, "index.html"), index);
 }
 
 function renderExamplePage(example, chunks, previous, next) {
-    let rendered = renderTemplateFile(path.join(TEMPLATES_PATH, "example.html"), {
+    let rendered = renderTemplateFile(path.join(TEMPLATES_PATH, "example.njk"), {
         title: example.title,
         chunks: chunks,
         previous: previous,

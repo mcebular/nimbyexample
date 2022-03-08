@@ -1,11 +1,14 @@
 import fs, { readFile } from "fs";
 import path from "path";
-import swig from "swig";
+import nunjucks from "nunjucks";
 
 export const BUILD_PATH = "public/";
 export const EXAMPLES_PATH = "examples/";
 export const TEMPLATES_PATH = "templates/";
 
+const nj = nunjucks.configure({
+    autoescape: false
+});
 
 export function getExamples() {
     console.log("Reading list of examples from examples.txt file...");
@@ -45,11 +48,7 @@ export function getExamples() {
 }
 
 export function renderTemplateFile(filepath, variables) {
-    let template = fs.readFileSync(filepath, { encoding: "utf-8" });
-    let rendered = swig.render(template, {
-        autoescape: false,
-        locals: variables
-    });
+    let rendered = nj.render(filepath, variables);
     return rendered;
 }
 
