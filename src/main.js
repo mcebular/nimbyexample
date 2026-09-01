@@ -1,4 +1,3 @@
-import { BUILD_PATH, getExamples } from "./common.js";
 import clean from "./clean.js";
 import build from "./build.js";
 import testNim from "./test.nim.js";

@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import process from "process";
 import { execSync } from "child_process";
-import { EXAMPLES_PATH, getExamples } from "./common.js";
+import { getExamples } from "./common.js";
 
 const outputNimFiles = (overwrite = false) => {
     var hadOutputErrors = false;
@@ -41,6 +41,6 @@ const outputNimFiles = (overwrite = false) => {
         console.error("Some nim files failed to compile and/or run. Check output above.");
         process.exit(1);
     }
-}
+};
 
 export default outputNimFiles;
