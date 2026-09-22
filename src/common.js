@@ -1,4 +1,4 @@
-import fs, { readFile } from "fs";
+import fs from "fs";
 import path from "path";
 import nunjucks from "nunjucks";
 
@@ -28,8 +28,8 @@ export function getExamples() {
         })
         .map(lineParts => {
             const line = lineParts[0];
-            const dir = path.join(EXAMPLES_PATH, line)
-            const title = path2title(lineParts.length > 1 ? lineParts[1] : lineParts[0])
+            const dir = path.join(EXAMPLES_PATH, line);
+            const title = path2title(lineParts.length > 1 ? lineParts[1] : lineParts[0]);
             return {
                 name: line,
                 path: dir.toString(),
@@ -40,7 +40,7 @@ export function getExamples() {
                     sh: readFileContents(path.join(dir, line + ".sh")),
                     out: readFileContents(path.join(dir, line + ".out"))
                 }
-            }
+            };
         });
 
     console.log("... got " + examplePathsList.length + " examples.");

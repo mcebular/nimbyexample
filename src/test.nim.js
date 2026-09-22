@@ -1,8 +1,7 @@
-import fs from "fs";
 import path from "path";
 import process from "process";
 import { execSync } from "child_process";
-import { EXAMPLES_PATH, getExamples } from "./common.js";
+import { getExamples } from "./common.js";
 
 const testNimFiles = () => {
     var totalExamples = 0;
@@ -27,6 +26,6 @@ const testNimFiles = () => {
     }
 
     console.log("Checked " + totalExamples + " files.");
-}
+};
 
 export default testNimFiles;

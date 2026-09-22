@@ -7,6 +7,6 @@ const cleanBuild = () => {
         console.log("Removing " + BUILD_PATH + " folder.");
         fs.rmSync(BUILD_PATH, { recursive: true });
     }
-}
+};
 
 export default cleanBuild;
